@@ -28,6 +28,7 @@ import org.apache.lucene.util.Version;
 public class CreateTestIndex {
 	
 	public static Directory dir;
+	public final static String _DIR = System.getProperty("user.dir");
 	 public static Document getDocument(String rootDir, File file) throws IOException {
 		    Properties props = new Properties();
 		    props.load(new FileInputStream(file));
@@ -143,9 +144,19 @@ public class CreateTestIndex {
 		    }
 		  }
 
+		  //运行生成索引文件
+		  public static void main(String[] args){
+			  try {
+				  CreateTestIndex.getDirectory();
+			  } catch (IOException e) {
+				  e.printStackTrace();
+			  }
+		  }
+
 		  public static Directory getDirectory() throws IOException {
-		    String dataDir = "D:\\MyDrivers\\project\\ecplise\\lucene_action\\data";
-		    String indexDir = "D:\\MyDrivers\\project\\ecplise\\lucene_action\\index";
+
+		    String dataDir = _DIR + File.separator + "data";
+		    String indexDir = _DIR + File.separator + "index";
 		    List<File> results = new ArrayList<File>();
 		    findFiles(results, new File(dataDir));
 		    System.out.println(results.size() + " books to index");
@@ -160,7 +171,7 @@ public class CreateTestIndex {
 		    }
 		   
 		    w.close();
+		    dir.close();
 		    return dir;
-//		    dir.close();
 		  }
 }

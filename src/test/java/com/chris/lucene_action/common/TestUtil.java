@@ -13,6 +13,7 @@ import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 
 public class TestUtil {
+	public final static String _DIR = System.getProperty("user.dir");
 	
 		public static boolean hitsIncludeTitle(IndexSearcher searcher, TopDocs hits, String title) 
 				throws IOException {
@@ -47,7 +48,7 @@ public class TestUtil {
 		  
 		  public static Directory getBookIndexDirectory() throws IOException {
 		    // The build.xml ant script sets this property for us:
-		    return FSDirectory.open(new File("D:\\MyDrivers\\project\\ecplise\\lucene_action\\index"));
+		    return FSDirectory.open(new File(_DIR + File.separator + "index"));
 		  }
 
 		  public static void rmDir(File dir) throws IOException {

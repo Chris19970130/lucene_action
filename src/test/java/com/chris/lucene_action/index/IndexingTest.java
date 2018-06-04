@@ -1,4 +1,4 @@
-package com.chris.lucene_action;
+package com.chris.lucene_action.index;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package com.chris.lucene_action;
+package com.chris.lucene_action.query;
 
 import org.apache.lucene.analysis.SimpleAnalyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
@@ -185,4 +185,6 @@ public class SearchTest extends TestCase{
 		  dir.close();
 		  searcher.close();
 	  }
+
+
 }
